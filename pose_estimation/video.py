@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # Initialize MediaPipe pose module
 mp_pose = mp.solutions.pose
-pose = mp_pose.Pose(min_detection_confidence=0.8, min_tracking_confidence=0.8)
+pose = mp_pose.Pose(min_detection_confidence=0.7, min_tracking_confidence=0.7)
 
 # Initialize MediaPipe drawing module
 mp_drawing = mp.solutions.drawing_utils
@@ -83,7 +83,7 @@ def display_frames(frames):
 
 
 # Function to save frames as a video
-def save_video(frames, output_path, fps=20):
+def save_video(frames, output_path, fps=30):
     if len(frames) == 0:
         print("No frames to save.")
         return
@@ -108,7 +108,7 @@ time.sleep(1)
 print("starting in 1 second...")
 time.sleep(1)
 print("starting now...")
-num_frames_to_capture = 200
+num_frames_to_capture = 300
 frames = capture_frames_from_camera(num_frames_to_capture)
 processed_frames = perform_pose_estimation(frames, save_pose_data=True)
 now = datetime.now()
